@@ -1,3 +1,32 @@
+# Node / JS
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Expo / React Native
+.expo/
+.expo-shared/
+web-build/
+android/
+ios/
+
+# Environment / secrets
+.env
+.env.local
+.env.*.local
+secrets.json
+secret-*.json
+*.keystore
+*.jks
+private-key.pem
+*.p12
+
+# Build / system
+dist/
+build/
+*.log
+.vscode/
+.DS_Store
 # Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
 
 # dependencies
