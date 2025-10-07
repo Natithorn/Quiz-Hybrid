@@ -118,24 +118,45 @@ export async function getClassMembers(year: string) {
 }
 
 export async function postStatus(token: string | null, content: string) {
-  return request('/status', {
+  return request('/classroom/status', {
     method: 'POST',
     body: JSON.stringify({ content }),
   });
 }
 
 export async function postComment(token: string | null, statusId: string, content: string) {
-  return request(`/status/${statusId}/comment`, {
+  return request('/classroom/comment', {
     method: 'POST',
-    body: JSON.stringify({ content }),
+    body: JSON.stringify({ content, statusId }),
   });
 }
 
 export async function toggleLike(token: string | null, statusId: string) {
-  return request('/like', {
+  return request('/classroom/like', {
     method: 'POST',
     body: JSON.stringify({ statusId }),
   });
+}
+
+export async function unlikeStatus(token: string | null, statusId: string) {
+  return request('/classroom/like', {
+    method: 'DELETE',
+    body: JSON.stringify({ statusId }),
+  });
+}
+
+export async function getStatuses() {
+  return request('/classroom/status');
+}
+
+export async function deleteStatus(statusId: string) {
+  return request(`/classroom/status/${statusId}`, {
+    method: 'DELETE',
+  });
+}
+
+export async function getProfile() {
+  return request('/classroom/profile');
 }
 
 // initStorage: if running in React Native (Expo) we try to use AsyncStorage for persistence.

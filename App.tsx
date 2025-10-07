@@ -27,7 +27,7 @@ export default function App() {
     setUserEmail(email || null);
     api.storageSet('token', tok);
     if (email) api.storageSet('email', email);
-    setScreen('home');
+    setScreen('feed'); // เปลี่ยนจาก 'home' เป็น 'feed'
   };
 
   const handleSignOut = () => {

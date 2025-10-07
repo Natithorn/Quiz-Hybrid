@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, useWindowDimensions } from 'react-native';
 import * as api from './src/api';
 
-
 export default function SignIn({ onSignIn }: any) {
 	const { width } = useWindowDimensions();
 	const isSmall = width < 600;
@@ -17,6 +16,8 @@ export default function SignIn({ onSignIn }: any) {
 		setLoading(true);
 		setMessage('');
 		try {
+			// เซ็ต API Key โดยตรง
+			api.setApiKey('8d9722bdf8ed27716e6e2e0213b8ff737cc16d17a85b2abda054ff59d99ba591');
 			const res = await api.signIn(email, password);
 			// try extract token
 			// res is expected to be the inner data object per API example
